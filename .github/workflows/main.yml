@@ -9,7 +9,7 @@ env:
 
 jobs:
   build-docker-image:
-    runs-on: [self-hosted, label-kosa]
+    runs-on: [self-hosted, label-kosa2]
     steps:
       - name: 원격저장소에서 소스를 복사
         uses: actions/checkout@v3
@@ -29,7 +29,7 @@ jobs:
   deploy:
     needs: build-docker-image
     name: deploy
-    runs-on: [self-hosted, label-kosa]
+    runs-on: [self-hosted, label-kosa2]
     steps:
       - name: 기존 서비스를 제거한다
         run: docker service rm hello-app:latest
